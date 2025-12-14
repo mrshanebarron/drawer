@@ -21,7 +21,7 @@
 import { computed, onMounted, onUnmounted, watch } from 'vue';
 
 export default {
-  name: 'LdDrawer',
+  name: 'SbDrawer',
   props: {
     modelValue: { type: Boolean, default: false },
     position: { type: String, default: 'right' },

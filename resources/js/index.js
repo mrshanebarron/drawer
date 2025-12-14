@@ -1,3 +1,3 @@
 import Drawer from './Drawer.vue';
 export { Drawer };
-export default { install(app) { app.component('LdDrawer', Drawer); } };
+export default { install(app) { app.component('SbDrawer', Drawer); } };

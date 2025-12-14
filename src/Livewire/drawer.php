@@ -31,6 +31,6 @@ class Drawer extends Component
 
     public function render()
     {
-        return view('ld-drawer::livewire.drawer');
+        return view('sb-drawer::livewire.drawer');
     }
 }
