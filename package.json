@@ -1,0 +1,12 @@
+{
+    "name": "@laraveldesign/drawer",
+    "version": "1.0.0",
+    "description": "Drawer/slide-out panel component for Laravel",
+    "main": "resources/js/vue/index.js",
+    "module": "resources/js/vue/index.js",
+    "files": ["resources/js/vue"],
+    "keywords": ["laravel", "drawer", "sidebar", "panel", "livewire", "vue"],
+    "author": "Shane Barron <mrshanebarron@gmail.com>",
+    "license": "MIT",
+    "peerDependencies": {"vue": "^3.0.0"}
+}
