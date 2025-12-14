@@ -1,30 +1,12 @@
 {
     "name": "mrshanebarron/drawer",
-    "description": "Drawer/slide-out panel component for Laravel",
-    "keywords": ["laravel", "drawer", "sidebar", "panel", "livewire", "vue"],
+    "description": "Slide-out drawer component for Laravel - supports Livewire and Vue",
+    "keywords": ["laravel", "livewire", "vue", "drawer", "sidebar", "slideout"],
     "license": "MIT",
     "authors": [{"name": "Shane Barron", "email": "mrshanebarron@gmail.com"}],
-    "require": {
-        "php": "^8.1",
-        "illuminate/support": "^10.0|^11.0|^12.0",
-        "livewire/livewire": "^3.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^8.0|^9.0",
-        "pestphp/pest": "^2.0"
-    },
-    "autoload": {
-        "psr-4": {"LaravelDesign\\drawer\\": "src/"}
-    },
-    "autoload-dev": {
-        "psr-4": {"LaravelDesign\\drawer\\Tests\\": "tests/"}
-    },
-    "extra": {
-        "laravel": {
-            "providers": ["LaravelDesign\\drawer\\drawerServiceProvider"]
-        }
-    },
-    "config": {"sort-packages": true},
+    "require": {"php": "^8.1", "illuminate/support": "^10.0|^11.0|^12.0"},
+    "autoload": {"psr-4": {"MrShaneBarron\\Drawer\\": "src/"}},
+    "extra": {"laravel": {"providers": ["MrShaneBarron\\Drawer\\DrawerServiceProvider"]}},
     "minimum-stability": "stable",
     "prefer-stable": true
 }

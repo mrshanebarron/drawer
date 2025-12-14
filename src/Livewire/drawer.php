@@ -9,34 +9,25 @@ class Drawer extends Component
     public bool $open = false;
     public string $position = 'right';
     public string $size = 'md';
-    public string $title = '';
-    public bool $overlay = true;
-    public bool $closeOnEscape = true;
     public bool $closeOnOverlay = true;
+    public bool $closeOnEscape = true;
+    public ?string $title = null;
 
-    public function mount(
-        bool $open = false,
-        string $position = 'right',
-        string $size = 'md',
-        string $title = '',
-        bool $overlay = true,
-        bool $closeOnEscape = true,
-        bool $closeOnOverlay = true
-    ): void {
+    protected $listeners = ['openDrawer' => 'openDrawer', 'closeDrawer' => 'close'];
+
+    public function mount(bool $open = false, string $position = 'right', string $size = 'md', bool $closeOnOverlay = true, bool $closeOnEscape = true, ?string $title = null): void
+    {
         $this->open = $open;
         $this->position = $position;
         $this->size = $size;
-        $this->title = $title;
-        $this->overlay = $overlay;
-        $this->closeOnEscape = $closeOnEscape;
         $this->closeOnOverlay = $closeOnOverlay;
+        $this->closeOnEscape = $closeOnEscape;
+        $this->title = $title;
     }
 
-    public function close(): void
-    {
-        $this->open = false;
-        $this->dispatch('drawer-closed');
-    }
+    public function openDrawer(): void { $this->open = true; }
+    public function close(): void { $this->open = false; }
+    public function toggle(): void { $this->open = !$this->open; }
 
     public function render()
     {
