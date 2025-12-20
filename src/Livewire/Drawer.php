@@ -2,6 +2,7 @@
 
 namespace MrShaneBarron\Drawer\Livewire;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Drawer extends Component
@@ -12,22 +13,51 @@ class Drawer extends Component
     public bool $closeOnOverlay = true;
     public bool $closeOnEscape = true;
     public ?string $title = null;
+    public ?string $drawerId = null;
 
-    protected $listeners = ['openDrawer' => 'openDrawer', 'closeDrawer' => 'close'];
-
-    public function mount(bool $open = false, string $position = 'right', string $size = 'md', bool $closeOnOverlay = true, bool $closeOnEscape = true, ?string $title = null): void
-    {
+    public function mount(
+        bool $open = false,
+        string $position = 'right',
+        string $size = 'md',
+        bool $closeOnOverlay = true,
+        bool $closeOnEscape = true,
+        ?string $title = null,
+        ?string $drawerId = null
+    ): void {
         $this->open = $open;
         $this->position = $position;
         $this->size = $size;
         $this->closeOnOverlay = $closeOnOverlay;
         $this->closeOnEscape = $closeOnEscape;
         $this->title = $title;
+        $this->drawerId = $drawerId;
     }
 
-    public function openDrawer(): void { $this->open = true; }
-    public function close(): void { $this->open = false; }
-    public function toggle(): void { $this->open = !$this->open; }
+    #[On('open-drawer')]
+    public function openDrawer(?string $id = null): void
+    {
+        if ($id === null || $id === $this->drawerId) {
+            $this->open = true;
+        }
+    }
+
+    #[On('close-drawer')]
+    public function closeDrawer(?string $id = null): void
+    {
+        if ($id === null || $id === $this->drawerId) {
+            $this->open = false;
+        }
+    }
+
+    public function close(): void
+    {
+        $this->open = false;
+    }
+
+    public function toggle(): void
+    {
+        $this->open = !$this->open;
+    }
 
     public function render()
     {
