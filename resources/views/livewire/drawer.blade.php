@@ -58,7 +58,7 @@ if ($isHorizontal) {
 
                 {{-- Content --}}
                 <div style="flex: 1; overflow-y: auto; padding: 1.5rem;">
-                    {{ $slot }}
+                    {!! $content !!}
                 </div>
             </div>
         </div>

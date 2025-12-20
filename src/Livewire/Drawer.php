@@ -14,6 +14,7 @@ class Drawer extends Component
     public bool $closeOnEscape = true;
     public ?string $title = null;
     public ?string $drawerId = null;
+    public string $content = '';
 
     public function mount(
         bool $open = false,
@@ -22,7 +23,8 @@ class Drawer extends Component
         bool $closeOnOverlay = true,
         bool $closeOnEscape = true,
         ?string $title = null,
-        ?string $drawerId = null
+        ?string $drawerId = null,
+        string $content = ''
     ): void {
         $this->open = $open;
         $this->position = $position;
@@ -31,6 +33,7 @@ class Drawer extends Component
         $this->closeOnEscape = $closeOnEscape;
         $this->title = $title;
         $this->drawerId = $drawerId;
+        $this->content = $content;
     }
 
     #[On('open-drawer')]
